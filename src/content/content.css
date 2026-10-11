@@ -1,0 +1,146 @@
+/**
+ * CC Auto Rewards - In-Page Content Styles
+ */
+
+#cc-auto-rewards-hud {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  min-width: 290px;
+  max-width: 360px;
+  padding: 14px 16px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+#cc-auto-rewards-hud.minimized {
+  min-width: auto;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+#cc-auto-rewards-hud.minimized .cc-hud-body,
+#cc-auto-rewards-hud.minimized .cc-hud-actions {
+  display: none;
+}
+
+.cc-hud-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.cc-hud-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #38bdf8;
+}
+
+.cc-hud-badge {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.cc-hud-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.cc-hud-btn-icon {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+  line-height: 1;
+  font-size: 14px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.cc-hud-btn-icon:hover {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cc-hud-status {
+  font-size: 12px;
+  color: #cbd5e1;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  min-height: 18px;
+}
+
+.cc-hud-progress-container {
+  display: none;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.cc-hud-progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  border-radius: 9999px;
+  transition: width 0.2s ease;
+}
+
+.cc-hud-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.cc-hud-btn-primary {
+  flex: 1;
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  text-align: center;
+}
+
+.cc-hud-btn-primary:hover {
+  opacity: 0.95;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.45);
+}
+
+.cc-hud-btn-primary:active {
+  transform: scale(0.98);
+}
+
+.cc-hud-btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}

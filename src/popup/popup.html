@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CC Auto Rewards</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon">💳</div>
+        <div class="brand-text">
+          <h1>CC Auto Rewards</h1>
+          <span class="version">v1.0.0</span>
+        </div>
+      </div>
+      <div class="status-indicator" id="chase-status-pill">
+        <span class="status-dot" id="status-dot"></span>
+        <span class="status-label" id="status-label">Checking...</span>
+      </div>
+    </header>
+
+    <!-- Stats Grid -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-value" id="stat-lifetime">0</span>
+        <span class="stat-label">Total Offers Added</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="stat-last-run">0</span>
+        <span class="stat-label">Last Run Added</span>
+      </div>
+    </section>
+
+    <!-- Settings: Mode Selection -->
+    <section class="mode-section">
+      <label class="section-label">Execution Mode</label>
+      <div class="mode-toggles">
+        <label class="mode-option">
+          <input type="radio" name="concurrency-mode" value="turbo" id="mode-turbo" checked>
+          <span class="mode-card">
+            <strong>⚡ Turbo</strong>
+            <small>Concurrent (Fastest)</small>
+          </span>
+        </label>
+        <label class="mode-option">
+          <input type="radio" name="concurrency-mode" value="polite" id="mode-polite">
+          <span class="mode-card">
+            <strong>🛡️ Polite</strong>
+            <small>Staggered 150ms</small>
+          </span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Primary Action & Progress -->
+    <section class="action-section">
+      <button class="btn-primary" id="btn-trigger-action" disabled>
+        <span class="btn-text" id="btn-text">Open Chase to Add Offers</span>
+      </button>
+
+      <div class="progress-wrap" id="progress-wrap">
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="progress-bar-fill"></div>
+        </div>
+        <div class="progress-status-text" id="progress-status-text">Scanning accounts...</div>
+      </div>
+    </section>
+
+    <!-- Recent Activity / History -->
+    <section class="history-section">
+      <div class="history-header">
+        <span class="section-label">Recent Activity</span>
+        <button class="btn-text-sm" id="btn-clear-history">Clear</button>
+      </div>
+      <div class="history-list" id="history-list">
+        <div class="history-empty">No offers added yet. Open Chase to get started!</div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <a href="https://secure.chase.com" target="_blank" class="footer-link">Go to Chase.com ↗</a>
+      <span class="footer-note">Client-side only • Secure</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

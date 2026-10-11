@@ -1,0 +1,15 @@
+# Package builds
+*.zip
+*.crx
+*.xpi
+
+# Node / dependencies
+node_modules/
+npm-debug.log*
+
+# System / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
