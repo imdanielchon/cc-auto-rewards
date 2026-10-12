@@ -1,6 +1,6 @@
 /**
  * CC Auto Rewards - Chase Offers Engine
- * Direct API interaction layer reverse-engineered from Chase web & CardPointers
+ * Direct API interaction layer for Chase banking web portals
  */
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) {

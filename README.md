@@ -4,14 +4,14 @@ An open-source Manifest V3 browser extension that automatically discovers and ac
 
 ---
 
-## 🔍 How It Works: Reverse-Engineered Evidence from CardPointers
+## 🔍 How CC Auto Rewards Works
 
-Analysis of CardPointers X (`firefox@cardpointers.com.xpi`, version 8.0.8) revealed the complete Chase Offers automation pipeline:
+CC Auto Rewards automates the Chase Offers pipeline directly within your browser:
 
 ### 1. Ambient Session & Cookie Harvesting
-CardPointers does **not** store or scrape user passwords. It runs as a content script in the user's active Chase tab (`document_end`) and reads the **Enterprise Customer Identifier (ECI)** from the `PC_1_0` cookie:
+CC Auto Rewards does **not** store or scrape user passwords. It runs as a content script in your active, authenticated Chase tab (`document_end`) and reads the **Enterprise Customer Identifier (ECI)** from the `PC_1_0` cookie:
 ```javascript
-// From CardPointers content.js
+// From CC Auto Rewards cookie helper
 const cookie = getCookieValue("PC_1_0");
 const match = decodeURIComponent(cookie).match(/ECI=([^|]+)/);
 const eci = match[1];
@@ -38,13 +38,13 @@ Calls Chase's V3 targeted offers API:
 * **Status Filtering**: Filters out offers where `offerStatusName === "ACTIVATED"`.
 
 ### 4. Direct Offer Activation (The Reco Engine)
-CardPointers does **not** click DOM buttons. It triggers a GET request directly against Chase's recommendation tracking service:
+CC Auto Rewards does **not** click DOM buttons. It triggers a GET request directly against Chase's recommendation tracking service:
 * **Endpoint**:
   ```
   GET https://reco.chase.com/events/recoengine/public/recommendation/ccb/sales-relationship/crm/personalization-recommendation-interactions/v2/customer-interaction?recommendation-event-type-code=CLICK&recommendation-identifier=${offer.recommendationIdentifier}&enterprise-party-identifier=${eci}&source-application-system-name=CHASE_WEB&source-request-component-name=OFFERS_HUB_ALL&offer-identifier=${offer.offerIdentifier}&offer-impression-token-identifier=${offer.offerImpressionTokenIdentifier}&request-context=MERCHANT_OFFERS&offer-session-token-identifier=&digital-account-identifier=${cardAccountId}
   ```
 * **Options**: `credentials: "omit"`, `origin: "https://${chaseHostName}.chase.com"`.
-* **Execution**: Fires requests concurrently across all pending offers using `Promise.all`.
+* **Execution**: Activates pending offers seamlessly using configurable concurrency (Turbo or Polite mode).
 
 ---
 
