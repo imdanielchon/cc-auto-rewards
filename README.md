@@ -80,12 +80,29 @@ CC Auto Rewards/
 
 ## 🚀 How to Install & Load the Extension
 
-1. Open **Google Chrome**, **Brave**, or **Microsoft Edge**.
-2. Navigate to `chrome://extensions`.
-3. Toggle on **Developer mode** in the top right corner.
+### In Google Chrome / Brave / Edge (Chromium)
+
+1. Clone or download this repository to your computer:
+   ```bash
+   git clone https://github.com/imdanielchon/cc-auto-rewards.git
+   ```
+2. Open your browser and navigate to the extensions management page:
+   * **Chrome**: `chrome://extensions`
+   * **Brave**: `brave://extensions`
+   * **Edge**: `edge://extensions`
+3. Toggle on **Developer mode** (usually in the top-right corner).
 4. Click **Load unpacked**.
-5. Select the `/home/daniel/Projects/CC Auto Rewards` directory.
-6. The extension is now loaded and ready!
+5. Select the root folder of the repository you cloned or extracted.
+6. The extension is now installed and will appear in your browser toolbar!
+
+### In Firefox
+
+1. Open Firefox and navigate to:
+   ```
+   about:debugging#/runtime/this-firefox
+   ```
+2. Click **Load Temporary Add-on...**.
+3. Select the `manifest.json` file inside the repository folder.
 
 ---
 
