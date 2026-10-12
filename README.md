@@ -8,7 +8,7 @@ An open-source Manifest V3 browser extension that automatically discovers and ac
 
 CC Auto Rewards automates the Chase Offers pipeline directly within your browser:
 
-### 1. Ambient Session & Cookie Harvesting
+### 1. Ambient Session & Cookie Detection
 CC Auto Rewards does **not** store or scrape user passwords. It runs as a content script in your active, authenticated Chase tab (`document_end`) and reads the **Enterprise Customer Identifier (ECI)** from the `PC_1_0` cookie:
 ```javascript
 // From CC Auto Rewards cookie helper
